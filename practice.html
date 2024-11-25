@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Itim&family=Jockey+One&family=Jost:ital,wght@0,100..900;1,100..900&family=Jura:wght@300..700&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="m-0 p-0 overflow-x-hidden w-full ">
+    <nav class="bg-custom-nav text-white h-[50px]  flex items-center justify-between px-2 w-full md:h-16 md:px-3 ">
+        <div class=" flex items-center w-[97px] md:w-[120px]">
+            <p class="text-[15px] md:text-2xl">MyCart</p>
+            <img src="assets/Product Photos/cart.png" alt="" class="h-5 w-5 md:h-10 md:w-10">
+        </div>
+        <p class="text-[18px] md:text-4xl">XYZCart</p>
+        <div class="flex justify-between items-center w-[99px] md:w-[180px]">
+            <p class="text-[14px] md:text-2xl">MyPurchase</p>
+            <img src="assets/Product Photos/purchased.png" alt="" class="h-5 w-5 md:h-10 md:w-10">
+        </div>
+    </nav>
+
+    <div class="flex justify-between">
+        <div class=" w-[170px] px-2 my-2 categories font-inria flex justify-between items-center rounded-md md:w-80">
+            <p class="text-[8px] md:text-[15px] text-custom-cat">Sort By Category :</p>
+            <div data-type="category" data-dropdown="dropdown" class="relative  w-[90px] rounded-md md:w-44">
+                <div data-select="select" class="flex justify-between items-center px-1 pr-2 bg-custom-nav text-white py-1 rounded-md md:w-44">
+                    <span class="selected-cat text-[8px] md:text-[15px]">Home Appliances</span>
+                    <div data-caret="caret" class="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-solid border-transparent border-t-white transition duration-300 transform"></div>
+                </div>
+                <ul data-menu="menu" class="menu list-none px-1  bg-custom-nav rounded-md text-white absolute text-[8px] top-[22px] left-1/2 w-full transform -translate-x-1/2  transition-opacity duration-200 z-10 opacity-0 md:text-[17px] md:top-9 md:px-2 py-1 ">
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Accessories</li>
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Wearables</li>
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Fitness</li>
+                    <li class="py-1 my-1  px-1 rounded-md bg-[#282929] hover:bg-[#282929] transition duration-300 cursor-pointer" data-selected="selected">Home Appliances</li>
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Electronics</li>
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">All</li>
+                </ul>
+            </div>
+        </div>
+
+        
+            <div class=" w-[170px] px-2 my-2 categories font-inria flex justify-between items-center rounded-md md:w-[293px]">
+                <p class="text-[8px] md:text-[15px] text-custom-cat">Sort By Price :</p>
+                <div data-type="price" data-dropdown="dropdown" class="relative  w-[90px] rounded-md md:w-44">
+                    <div data-select="select" class="flex justify-between items-center px-1 pr-2 bg-custom-nav text-white py-1 rounded-md md:w-44">
+                        <span id="selected-price" class="selected-cat text-[8px] md:text-[15px]">Low To High</span>
+                        <div data-caret="caret" class="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-solid border-transparent border-t-white transition duration-300 transform"></div>
+                    </div>
+                    <ul data-menu="menu" class="menu list-none px-1  bg-custom-nav rounded-md text-white absolute text-[8px] top-[22px] left-1/2 w-full transform -translate-x-1/2  transition-opacity duration-200 z-10 opacity-0 md:text-[17px] md:top-9 md:px-2 py-1 ">
+
+                        <li class="py-1 my-1  px-1 rounded-md bg-[#282929] hover:bg-[#282929] transition duration-300 cursor-pointer" data-selected="selected">Low To High</li>
+                        <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">High To Low</li>
+
+                    </ul>
+                </div>
+            </div>
+            </div>
+    <main class="flex flex-wrap justify-between h-[600px] bg-[#E2E2E2] px-2 py-2 md:px-4">
+       <div data-card="card" class="bg-[#EDEAEA] w-[78px] h-[115px] flex flex-col items-center justify-between pb-[3px] shadow-black-custom md:w-[231px] md:h-[323px] md:pb-1  ">
+        <div data-image="image" class=" h-[51%] w-full md:h-[58%]">
+            <img src="assets/Product Photos/gaming_laptop.jpg" alt="" class="w-[100%] h-[100%]">
+        </div>
+        <div data-details="details" class="border-1 borde px-1 md:px-3">
+            <p class="text-[5px] md:text-[13px] font-inria">Portable Bluetooth speaker with deep bass and 10-hour battery life.</p>
+        </div>
+        <div data-rupees="ruppes" class="font-jockey-one text-[#4C0102] text-[8px]  flex items-center justify-between w-full px-[2.5px] md:px-3 md:text-[20px]">
+            <p>Rs.110000</p>
+            <img src="assets/Product Photos/Rating (2).png" alt="" class="h-[5px] w-[23px] md:h-[17px] md:w-[92px]">
+        </div>
+        <button class="w-[94%] h-[20px] font-lexenda text-[10px] bg-[#C7C6C6] hover:bg-custom-search hover:text-white rounded-md transform duration-500 md:h-[50px] md:w-[92%] md:text-[18px]">Add To Cart</button>
+       </div>
+    </main>
+    
+</body>
+</html>

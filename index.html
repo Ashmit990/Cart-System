@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoping-Cart By Ashmit</title>
+    <link rel="stylesheet" href="/src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Itim&family=Jockey+One&family=Jost:ital,wght@0,100..900;1,100..900&family=Jura:wght@300..700&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body style="background-color:#E2E2E2;">
+    <nav class="bg-custom-nav text-white h-[50px]  flex items-center justify-between px-2 w-full md:h-16 md:px-3 ">
+        <div id="cartIcon" class=" flex items-center w-[97px] md:w-[120px]">
+            <p class="text-[15px] md:text-2xl">MyCart</p>
+            <img src="assets/Product Photos/cart.png" alt="" class="h-5 w-5 md:h-10 md:w-10">
+        </div>
+        <p class="text-[18px] md:text-4xl">XYZCart</p>
+        <div class="flex justify-between items-center w-[99px] md:w-[180px]">
+            <p class="text-[14px] md:text-2xl">MyPurchase</p>
+            <img src="assets/Product Photos/purchased.png" alt="" class="h-5 w-5 md:h-10 md:w-10">
+        </div>
+    </nav>
+
+    <div class="flex justify-between">
+        <div class=" w-[170px] px-2 my-2 categories font-inria flex justify-between items-center rounded-md md:w-80 cursor-pointer">
+            <p class="text-[8px] md:text-[15px] text-custom-cat">Sort By Category :</p>
+            <div data-type="category" data-dropdown="dropdown" class="relative  w-[90px] rounded-md md:w-44">
+                <div data-select="select" class="flex justify-between items-center pl-2 pr-2 bg-custom-nav text-white py-1 rounded-md md:w-44">
+                    <span class="selected-cat text-[8px] md:text-[15px]">All</span>
+                    <div data-caret="caret" class="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-solid border-transparent border-t-white transition duration-300 transform"></div>
+                </div>
+                <ul data-menu="menu" class="menu list-none px-1  bg-custom-nav rounded-md text-white absolute text-[8px] top-[22px] left-1/2 w-full transform -translate-x-1/2  transition-opacity duration-200 z-10 opacity-0 md:text-[17px] md:top-9 md:px-2 py-1 ">
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Accessories</li>
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Wearables</li>
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Fitness</li>
+                    <li class="py-1 my-1  px-1 rounded-md bg-[#282929] hover:bg-[#282929] transition duration-300 cursor-pointer" data-selected="selected">All</li>
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Electronics</li>
+                    <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Home Appliances</li>
+                </ul>
+            </div>
+        </div>
+
+        
+            <div class=" w-[157px] px-2 my-2 categories font-inria flex justify-between items-center rounded-md md:w-[293px] cursor-pointer">
+                <p class="text-[8px] md:text-[15px] text-custom-cat">Sort By Price :</p>
+                <div data-type="price" data-dropdown="dropdown" class="relative  w-[90px] rounded-md md:w-44">
+                    <div data-select="select" class="flex justify-between items-center pl-2 pr-2 bg-custom-nav text-white py-1 rounded-md md:w-44">
+                        <span id="selected-price" class="selected-cat text-[8px] md:text-[15px]">Mixed</span>
+                        <div data-caret="caret" class="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-solid border-transparent border-t-white transition duration-300 transform"></div>
+                    </div>
+                    <ul data-menu="menu" class="menu list-none px-1  bg-custom-nav rounded-md text-white absolute text-[8px] top-[22px] left-1/2 w-full transform -translate-x-1/2  transition-opacity duration-200 z-10 opacity-0 md:text-[17px] md:top-9 md:px-2 py-1 ">
+
+                        <li class="py-1 my-1  px-1 rounded-md bg-[#282929] hover:bg-[#282929] transition duration-300 cursor-pointer" data-selected="selected">Mixed</li>
+                        <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">High To Low</li>
+                        <li class="py-1 my-1  px-1 rounded-md hover:bg-[#282929] transition duration-300 cursor-pointer">Low To High</li>
+
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <main id="product-box" class="flex flex-wrap justify-between h-[20px] bg-[#E2E2E2] px-2 py-2 md:px-4">
+      
+
+        
+    </main>
+    <div class="overlay fixed top-0 left-0 w-full h-full z-10 transition-opacity ease-in duration-800 bg-[rgba(0,0,0,0.7)] shadow-black-custom hidden">
+
+    </div>
+   
+     
+    
+<script type="module" src="assets/js/script.js"></script> 
+</body>
+</html>
