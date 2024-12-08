@@ -7,6 +7,7 @@ export const products = {
       image: "/Shopping-Cart/assets/Product Photos/smart_phone.jpg",
       category: "Electronics",
     },
+
     102: {
       name: "Gaming Laptop Pro",
       totalPrice: 110000,
@@ -185,4 +186,9 @@ export const products = {
       category: "Fitness",
     },
   };
+
+ localStorage.setItem("this", JSON.stringify(products)); //saves products data into the local storage under the key "this"
+
+
+  
   

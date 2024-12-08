@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart By Ashmit</title>
+    <link rel="stylesheet" href="/Shopping-Cart/assets/src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Itim&family=Jockey+One&family=Jost:ital,wght@0,100..900;1,100..900&family=Jura:wght@300..700&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <nav class="w-full h-[50px] bg-[#4E5A62] px-2 md:h-[80px] flex items-center md:px-9 justify-between">
+    <div>
+      <span class="text-white font-semibold text-[13px]  md:text-[26px]">ADMIN DASHBOARD</span>
+      <i class="fa-solid fa-user md:text-4xl text-sm" style="color: #ffffff;"></i>
+    </div>
+
+    <span class="text-white font-semibold md:text-[20px] text-[10px]">Hello Admin</span>
+    
+  </nav>
+
+  <main class=" mt-1 w-[99%] px-1  md:px-2">
+    <div class="border-b md:mx-auto border-gray-500 h-[35px] md:h-[70px] flex items-center">
+      <span class="font-lexenda font-semibold md:text-[40px]">Manage Products</span>
+    </div>
+
+    <div id="appending" class="mt-5 px-1 bg-[#F9F9F9] rounded-md min-h-[400px] md:mx-auto shadow-black-custom flex flex-col">
+      <div class="border-b border-gray-500 flex justify-between items-center w-full h-[40px] md:h-[60px] py-1 md:px-2">
+        <span class="font-lexenda font-semibold text-[8px] py-1 md:text-[20px]">Product ID</span>
+        <span class="font-lexenda font-semibold text-[8px] py-1 md:text-[20px]">Product Name</span>
+        <span class="font-lexenda font-semibold text-[8px] py-1 md:text-[20px]">Product Rate</span>
+        <span id="add-products" class="rounded-md bg-[#6A9865] cursor-pointer w-[56px] md:w-[110px] md:h-[40px] h-[22px] flex items-center justify-between px-1 md:px-2"><p class="text-[6px] md:text-[12px] h-full flex items-center text-white font-semibold md:font-bold">Add Products</p><i class="fa-solid fa-plus text-[8px] md:text-[14px]" style="color: #ffffff;"></i></span>
+      </div>
+
+      <div class="mainBox">
+
+       
+
+      </div>
+      
+
+    </div>
+  </main>
+  <div id="overlay" class="hidden fixed top-0 left-0 w-full h-full z-10 transition-opacity ease-in duration-800 bg-[rgba(0,0,0,0.8)]">
+    <div id="add-popup" class="hidden shadow-black-custom w-[300px] h-[435px] rounded-md absolute top-[50%] left-[50%] bg-white transform translate-x-[-50%] translate-y-[-50%]">
+      <div class=" px-2 h-[40px] flex justify-between items-center">
+       <span class="font-lexenda font-semibold text-[15px]">Add Product</span>
+       <i id="close-mark" class="fa-solid fa-xmark cursor-pointer"></i>
+      </div>
+
+      <div class=" flex items-center h-[35px] px-2 mt-[10px] font-lexenda justify-between">
+        <input id="new-id" placeholder="Product ID" type="number" class="shadow-black-custom rounded-md w-[30%] h-full placeholder:text-gray-600 text-[11px] px-1 font-medium outline-none bg-[#F3F5F6]">
+        <input id="new-name" placeholder="Product Name" class="text-[11px] bg-[#F3F5F6] shadow-black-custom h-full w-[65%] rounded-md font-medium placeholder:text-gray-600 px-1 outline-none" type="text">
+      </div>
+
+      <div class=" mt-[15px] h-[60px] px-2">
+        <input id="new-des" type="text" placeholder="Product Description" class="h-full rounded-md w-full bg-[#F3F5F6] font-medium shadow-black-custom placeholder:text-gray-600 text-[11px] font-lexenda px-1 outline-none" name="" id=""></input>
+      </div>
+
+      <div class="mt-[15px] h-[60px] px-2">
+        <input id="new-url" type="url" placeholder="Product IMG URL" class="h-full rounded-md w-full bg-[#F3F5F6] font-medium shadow-black-custom placeholder:text-gray-600 text-[11px] font-lexenda px-1 outline-none" name="" id=""></input>
+      </div>
+
+      <div class=" h-[50px] px-2 mt-[15px]">
+        <input id="new-price" placeholder="Product Price" type="number" class="px-1 bg-[#F3F5F6] shadow-black-custom h-full w-full rounded-md placeholder:text-gray-600 text-[11px] font-lexenda font-medium outline-none">
+      </div>
+
+      <div class=" h-[50px] px-2 mt-[15px]">
+        <input id="new-category" placeholder="Product Category" type="text" class="px-1 bg-[#F3F5F6] shadow-black-custom h-full w-full rounded-md placeholder:text-gray-600 text-[11px] font-lexenda font-medium outline-none">
+      </div>
+
+      <div class=" mt-[15px]  px-2 h-[50px] flex">
+        <button id="new-add" class="new-add h-full w-full rounded-md bg-[#457198] text-[20px] text-white font-medium">Add <i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
+      </div>
+    </div>
+    <div id="delete-popup" class="border-2 border-white absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] w-[300px] h-[150px] rounded-md bg-[#F3F5F6] shadow-black-custom hidden flex flex-col items-center justify-evenly py-3">
+      <div class="font-lexenda font-medium">Are you sure want to remove it?</div>
+      <div class=" w-[255px] h-[50px] flex justify-between">
+        <button id="close-it" class=" font-lexenda font-semibold cursor-pointer bg-white shadow-black-custom w-[120px] rounded-md h-full">Cancel</button>
+        <button id="remove-it" class=" font-lexenda font-semibold cursor-pointer bg-red-500 text-white shadow-black-custom w-[120px] rounded-md h-full">Remove</button>
+      </div>
+    </div>
+
+    <div id="edit-popup" class="border-2 border-white bg-white absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] shadow-black-custom w-[300px] h-[543px] rounded-md hidden">
+      <div class=" px-2 h-[40px] flex justify-between items-center">
+          <span class="font-lexenda font-medium text-[15px]">Edit Product</span>
+          <i id="edit-close-mark" class="fa-solid fa-xmark cursor-pointer"></i>
+        </div>
+
+        <div class="w-full h-[65px] mt-[8px] flex flex-col justify-between px-2">
+          <span class="font-lexenda font-semibold text-[12px]">Edit Product ID :</span>
+          <input id="edit-id" class="edit-id text-[12px] w-full h-[40px] rounded-md bg-[#F3F5F6] shadow-black-custom outline-none px-2 font-lexenda" type="number">
+        </div>
+
+        <div class="w-full h-[65px] mt-[8px] flex flex-col justify-between px-2">
+          <span class="font-lexenda font-semibold text-[12px]">Edit Product Name :</span>
+          <input id="edit-name" class="text-[12px] w-full h-[40px] rounded-md bg-[#F3F5F6] shadow-black-custom outline-none px-2 font-lexenda" type="text">
+       </div>
+
+       <div class="w-full h-[65px] mt-[8px] flex flex-col justify-between px-2">
+         <span class="font-lexenda font-semibold text-[12px]">Edit Product Description :</span>
+         <input id="edit-des" class="text-[12px] w-full h-[40px] rounded-md bg-[#F3F5F6] shadow-black-custom outline-none px-2 font-lexenda" type="text">
+       </div>
+
+       <div class="w-full h-[65px] mt-[8px] flex flex-col justify-between px-2">
+         <span class="font-lexenda font-semibold text-[12px]">Edit Product Image URL :</span>
+         <input id="edit-url" class="text-[12px] w-full h-[40px] rounded-md bg-[#F3F5F6] shadow-black-custom outline-none px-2 font-lexenda" type="url">
+       </div>
+
+       <div class="w-full h-[65px] mt-[8px] flex flex-col justify-between px-2">
+         <span class="font-lexenda font-semibold text-[12px]">Edit Product Price :</span>
+         <input id="edit-price" class="text-[12px] w-full h-[40px] rounded-md bg-[#F3F5F6] shadow-black-custom outline-none px-2 font-lexenda" type="number">
+       </div>
+
+       <div class="w-full h-[65px] mt-[8px] flex flex-col justify-between px-2">
+        <span class="font-lexenda font-semibold text-[12px]">Edit Product Category :</span>
+        <input id="edit-category" class="text-[12px] w-full h-[40px] rounded-md bg-[#F3F5F6] shadow-black-custom outline-none px-2 font-lexenda" type="text">
+      </div>
+
+       <div class="w-full h-[50px] mt-2 flex flex-col justify-between px-2">
+        <button id="new-change" class="new-add h-full w-full rounded-md bg-[#569845] text-[20px] text-white font-medium">Save Changes</button>
+       </div>
+     
+    </div>
+  </div>
+  <script type="module" src="/Shopping-Cart/assets/js/admin.js"></script>    
+</body>
+</html>
