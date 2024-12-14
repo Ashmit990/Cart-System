@@ -56,8 +56,7 @@ dropdowns.forEach((dropdown) => {
 });
 
 
-const datas = JSON.parse(localStorage.getItem("this") || "{}");
- //fetching the products informations through local storage and storing it into "datas" variable
+const datas = JSON.parse(localStorage.getItem("this")); //fetching the products informations through local storage and storing it into "datas" variable
 
 
 function createCards([key,product]){
