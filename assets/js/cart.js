@@ -160,15 +160,12 @@ cartArray.forEach((key,index)=>{
                  location.reload() //this reloads the page
 
                  if(yourEmail.value==="ashmitcristiano07@gmail.com"){
-
-                    
-                    window.location.href="../../components/admin.html"
-                   
-                     
-                   }
-                   else{
-                     window.location.href="../../index.html"
-                   }
+                    // from /components/cart.html go to /components/admin.html (same folder)
+                    window.location.href="admin.html";
+                 } else {
+                    // from /components/cart.html go back to /index.html
+                    window.location.href="../index.html";
+                 }
 
                   //this will redirect us to home page when clicked on "Back To Shop" button      
             })
