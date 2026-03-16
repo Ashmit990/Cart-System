@@ -60,6 +60,18 @@ dropdowns.forEach((dropdown) => {
 
 const PRODUCTS_STORAGE_KEY = "this";
 
+function normalizeImageForRoot(path) {
+    if (!path) return path;
+    let p = path;
+    if (p.startsWith("../")) {
+        p = p.replace(/^\.\.\//, "");
+    }
+    if (p.startsWith("/")) {
+        p = p.replace(/^\/+/, "");
+    }
+    return p;
+}
+
 function loadProductsFromStorage() {
     const raw = localStorage.getItem(PRODUCTS_STORAGE_KEY);
     if (!raw) {
@@ -82,12 +94,13 @@ const datas = loadProductsFromStorage(); //fetching the products informations th
 
 function createCards([key,product]){
 
-    let {totalPrice,description,image}=product  //Destructuring the datas
+    let {totalPrice,description,image}=product;  //Destructuring the datas
+    const imagePath = normalizeImageForRoot(image);
     
 
         return  ` <div data-card="card" class="bg-[#EDEAEA] w-[78px] h-[115px] flex flex-col items-center justify-between pb-[3px] shadow-black-custom md:w-[231px] md:h-[323px] md:pb-1 hover:scale-105 transform duration-[0.5s] md:my-4 my-2 cursor-pointer rounded-md">
         <div data-image="image" class=" h-[51%] w-full md:h-[58%] rounded-md">
-            <img src="${image}" alt="" class="w-[100%] h-[100%] rounded-md">
+            <img src="${imagePath}" alt="" class="w-[100%] h-[100%] rounded-md">
         </div>
         <div data-details="details" class="border-1 borde px-1 md:px-3">
             <p class="text-[5px] md:text-[13px] font-inria">${description}</p>
@@ -139,6 +152,7 @@ function eventListener(){
            const key=e.target.getAttribute("data-key")//when clicked on "Add To Cart" button it will return the data-key of respective "Add To Cart" button and stores it into "key" variable
            
            const {name,totalPrice,image}=datas[key] //accessing and destructuring the product object of respective/selected data-key
+           const imagePath = normalizeImageForRoot(image);
            let price=totalPrice //initializing value of price as "totalPrice" which can be increased on decreased later on..
 
            
@@ -146,7 +160,7 @@ function eventListener(){
            overlay.innerHTML=` <div class="content absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] transition-opacity ease-in duration-800">
             <div class="popup w-[275px] bg-[#CFCDCD] h-[450px] m-auto rounded-md flex flex-col items-center justify-between pb-2  ">
                 <div class="w-full h-[55%] rounded-md">
-                    <img src="${image}" alt="" class="w-full h-full rounded-md">
+                    <img src="${imagePath}" alt="" class="w-full h-full rounded-md">
                 </div>
                 <div class="w-full flex justify-center items-center">
                     <p class="font-lexenda text-[20px]">${name}</p>
@@ -198,7 +212,7 @@ function eventListener(){
             localStorage.setItem("this",JSON.stringify(datas))
             let details={
                 productName:name,
-                productImage:image,
+                productImage:imagePath,
                 productQuantity:totalQuantity.value,
                 productPrice:price,
                 initial:totalPrice

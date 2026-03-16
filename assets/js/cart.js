@@ -44,6 +44,15 @@ cartArray.forEach((key,index)=>{
     let productDatas=JSON.parse(localStorage.getItem(key)) || [] //fetches the each unique keys which contains respective details of products from local storage and storing it to "productDatas" variable
 
     let {productName,productImage,productQuantity,productPrice}=productDatas //destructuring product datas from each unique key 
+
+    // Normalize image path so it works from /components/cart.html (GitHub Pages and local)
+    let imgPath = productImage || "";
+    if (imgPath.startsWith("/assets/")) {
+        imgPath = imgPath.slice(1); // "assets/..."
+    }
+    if (!imgPath.startsWith("../assets/") && imgPath.startsWith("assets/")) {
+        imgPath = "../" + imgPath; // make it relative to /components/
+    }
    
     cost+=productPrice //giving value of product price (after changing quantity in cover page) to cost variable
 
@@ -84,7 +93,7 @@ cartArray.forEach((key,index)=>{
     div.innerHTML= `<div class="w-[97%] h-[60px] mt-[1px] pr-[6px] flex justify-between items-center py-[5px] md:h-[95px]">
                 
                 <div class="w-[54px] h-[100%] rounded-md md:w-[96px]">
-                    <img src="${productImage}" alt="" class="w-[100%] h-[100%] rounded-md">
+                    <img src="${imgPath}" alt="" class="w-[100%] h-[100%] rounded-md">
                 </div>
 
                 <div class="w-[100px] h-[97] md:w-[150px] flex items-center">
