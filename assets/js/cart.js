@@ -19,6 +19,10 @@ const yourEmail=document.getElementById("your-email")
 const message = document.getElementById('message');
 const closeBtn=document.getElementById("close") //accessing necessary elements
 
+function goTo(relativePath) {
+    window.location.href = new URL(relativePath, document.baseURI).href;
+}
+
 function openMsg(){
     message.classList.remove("opacity-0")
     message.classList.remove("scale-[0]");
@@ -161,10 +165,10 @@ cartArray.forEach((key,index)=>{
 
                  if(yourEmail.value==="ashmitcristiano07@gmail.com"){
                     // from /components/cart.html go to /components/admin.html (same folder)
-                    window.location.href="admin.html";
+                    goTo("admin.html");
                  } else {
                     // from /components/cart.html go back to /index.html
-                    window.location.href="../index.html";
+                    goTo("../index.html");
                  }
 
                   //this will redirect us to home page when clicked on "Back To Shop" button      

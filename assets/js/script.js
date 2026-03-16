@@ -8,6 +8,10 @@ const dropdowns = document.querySelectorAll("[data-dropdown]");
 let selectedCategory = "All"; //Default value is All, later.. can choose categories
 let selectedPriceOrder ="Mixed"; //Default value is Mixed, later.. can choose "low-to-high" or "high-to-low"
 
+function goTo(relativePath) {
+    window.location.href = new URL(relativePath, document.baseURI).href;
+}
+
 dropdowns.forEach((dropdown) => {
     const select = dropdown.querySelector("[data-select]");
     const caret = dropdown.querySelector("[data-caret]");
@@ -228,7 +232,7 @@ function eventListener(){
 
              localStorage.setItem('cartProducts',JSON.stringify(cartProducts)) //then it saves each unique key of selected products into an array
 
-             window.location.href="components/cart.html"//then it will redirect the user to cart.html page where there are products which users added into their MyCart
+             goTo("components/cart.html")//then it will redirect the user to cart.html page where there are products which users added into their MyCart
 
              //After doing all this, the items which user added to their cart is stored as a unique key inside "cartProducts" array and each unique key contains respective details of the products
             
@@ -239,7 +243,7 @@ function eventListener(){
 }
 const cartIcon=document.querySelector("#cartIcon") //accessing "MyCart" option
 cartIcon.addEventListener("click",function(){
-    window.location.href="components/cart.html" //when clicked on "MyCart" it will redirect us to cart.html page where it will show the products that user added into their "MyCart"
+    goTo("components/cart.html") //when clicked on "MyCart" it will redirect us to cart.html page where it will show the products that user added into their "MyCart"
 })
 eventListener() //initial event listener
 
