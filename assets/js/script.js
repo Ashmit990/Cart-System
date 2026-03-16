@@ -1,3 +1,5 @@
+import { products as defaultProducts } from "./products.js";
+
 const productBox = document.querySelector("#product-box");
 productBox.style.display="flex"
 const dropdowns = document.querySelectorAll("[data-dropdown]");
@@ -56,7 +58,26 @@ dropdowns.forEach((dropdown) => {
 });
 
 
-const datas = JSON.parse(localStorage.getItem("this")); //fetching the products informations through local storage and storing it into "datas" variable
+const PRODUCTS_STORAGE_KEY = "this";
+
+function loadProductsFromStorage() {
+    const raw = localStorage.getItem(PRODUCTS_STORAGE_KEY);
+    if (!raw) {
+        localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(defaultProducts));
+        return defaultProducts;
+    }
+
+    try {
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object") throw new Error("Invalid products payload");
+        return parsed;
+    } catch {
+        localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(defaultProducts));
+        return defaultProducts;
+    }
+}
+
+const datas = loadProductsFromStorage(); //fetching the products informations through local storage and storing it into "datas" variable
 
 
 function createCards([key,product]){

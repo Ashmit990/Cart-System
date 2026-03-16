@@ -153,12 +153,12 @@ cartArray.forEach((key,index)=>{
                  if(yourEmail.value==="ashmitcristiano07@gmail.com"){
 
                     
-                    window.location.href="/Shopping-Cart/components/admin.html"
+                    window.location.href="../../components/admin.html"
                    
                      
                    }
                    else{
-                     window.location.href="/Shopping-Cart/index.html"
+                     window.location.href="../../index.html"
                    }
 
                   //this will redirect us to home page when clicked on "Back To Shop" button      

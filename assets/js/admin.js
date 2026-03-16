@@ -1,4 +1,25 @@
-let datas=JSON.parse(localStorage.getItem("this")) // fetching product datas from local storage and storing it into "datas" variable
+import { products as defaultProducts } from "./products.js";
+
+const PRODUCTS_STORAGE_KEY = "this";
+
+function loadProductsFromStorage() {
+  const raw = localStorage.getItem(PRODUCTS_STORAGE_KEY);
+  if (!raw) {
+    localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(defaultProducts));
+    return defaultProducts;
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") throw new Error("Invalid products payload");
+    return parsed;
+  } catch {
+    localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(defaultProducts));
+    return defaultProducts;
+  }
+}
+
+let datas = loadProductsFromStorage(); // fetching product datas from local storage and storing it into "datas" variable
 
 const mainBox=document.querySelector(".mainBox");
 const addProduct=document.getElementById("add-products")
